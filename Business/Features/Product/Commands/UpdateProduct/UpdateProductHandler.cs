@@ -29,7 +29,7 @@ namespace Business.Features.Product.Commands.UpdateProduct
         {
             var product = await _productReadRepository.GetAsync(request.Id);
             if (product is null)
-                throw new NotFoundException("mehsul tapilmadi");
+                throw new NotFoundException("Mehsul tapilmadi");
 
             var result = await new UpdateProductCommandValidator().ValidateAsync(request);
             if (!result.IsValid)

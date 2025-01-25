@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Wrappers;
 using Core.Exceptions;
+using Data.Repositories.Abstract;
 using Data.Repositories.Abstract.Product;
 using Data.UnitOfWork;
 using MediatR;

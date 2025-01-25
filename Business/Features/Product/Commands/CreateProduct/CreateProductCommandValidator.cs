@@ -8,11 +8,11 @@ namespace Business.Features.Product.Commands.CreateProduct
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("ad daxil edin");
             RuleFor(x => x.Quantity).GreaterThan(0).WithMessage("say azi 1 olmalidir");
-            RuleFor(X => X.Price).GreaterThan(0).WithMessage("qiymet 0dan boyuk olmalidir ");
-            RuleFor(x => x.Description).MinimumLength(8).MaximumLength(100).WithMessage("mehsul haqqinda melumat xarakterlerin sayi 8 - 100 olmalidir");
-            RuleFor(x => x.Type).IsInEnum().WithMessage("Type yanlis formatdadir");
+            RuleFor(X => X.Price).GreaterThan(0).WithMessage("qiymet 0dan boyuk olmalidir");
+            RuleFor(x => x.Description).MinimumLength(8).MaximumLength(100).WithMessage("Mehsul haqqinda xarakterlerin sayi 8 - 100 olmalidir");
+            RuleFor(x => x.Type).IsInEnum().WithMessage("Tip yanlisdir");
 
-            RuleFor(x => x.Photo).NotEmpty().WithMessage("foto daxil edin");
+            RuleFor(x => x.Photo).NotEmpty().WithMessage("foto elave edin");
             RuleFor(x => x.Photo).Must(IsCorrrectFormat).WithMessage("yanlis format");
         }
         private bool IsCorrrectFormat(string photo)
