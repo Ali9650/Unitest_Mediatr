@@ -6,11 +6,14 @@ namespace Presentation.Middlewares
     public class CustomExceptionMiddleware
     {
         private readonly RequestDelegate next;
+		private readonly ILogger<CustomExceptionMiddleware> _logger;
 
-        public CustomExceptionMiddleware(RequestDelegate  requestDelegate)
+		public CustomExceptionMiddleware(RequestDelegate  requestDelegate,
+            ILogger<CustomExceptionMiddleware> logger)
         {
             next = requestDelegate;
-        }
+			_logger = logger;
+		}
 
         public async Task InvokeAsync(HttpContext context)
         {
@@ -40,6 +43,7 @@ namespace Presentation.Middlewares
                         break;
 
                     default:
+                        _logger.LogError($"Message: {e.Message} , InnerException: {e.InnerException}");
                         context.Response.StatusCode = StatusCodes.Status500InternalServerError;
                         response.Message = "Xeta bash verdi!";
                         break;

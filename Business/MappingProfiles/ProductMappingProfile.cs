@@ -20,7 +20,7 @@ namespace Business.MappingProfiles
                     opt.MapFrom(src => src.Photo);
                 });
 
-            CreateMap<Product, ProductDto>();
+            //CreateMap<Product, ProductDto>();
 
         }
     }
